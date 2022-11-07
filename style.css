@@ -1,0 +1,173 @@
+*{
+  margin: 0;
+  padding: 0;
+
+  box-sizing: border-box;
+}
+
+:root{
+  font-size: 62.5%;
+
+  --fc-primary: #f7dd43;
+  --fc-secondary: #e1e1e6;
+
+  --border-color: #746615;
+  --border-top-color: #323238;
+
+  --bg-color: #1d1c19;
+  --bg-image: url(./assets/bg-yellow.svg);
+}
+
+/* body color options */
+
+body.blue{
+  --fc-primary: #338af3;
+  
+  --border-color: #338af3;
+  
+  --bg-color: #202024;
+  --bg-image: url(./assets/bg-blue.svg);
+}
+
+body.green{
+  --fc-primary: #047c3f;
+
+  --border-color: #047c3f;
+
+  --bg-color: #1a1f1b;
+  --bg-image: url(./assets/bg-green.svg);
+}
+
+/* end of body color options */
+
+body *{
+  font-family: "Roboto", sans-serif;
+  font-size: 1.6rem;
+}
+
+body{
+  background-color: #121214;
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: cover;
+  background-image: var(--bg-image);
+
+  padding-bottom: 3.2rem;
+}
+
+#container{
+  width: fit-content;
+
+  margin: auto;
+  padding-top: 5.2rem;
+}
+
+header{
+  text-align: center;
+
+  margin-bottom: 6.3rem;
+}
+
+#cards{
+  display: flex;
+  flex-direction: column;
+  gap: 3.2rem;
+}
+
+.card{
+  text-align: center;
+
+  padding: 3.2rem 2.3rem;
+
+  border-bottom: 2px solid var(--fc-primary);
+  border-radius: 0.6rem;
+
+  background: var(--bg-color);
+}
+
+.card h2{
+  width: fit-content;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.6rem;
+
+  border: 1px solid var(--border-color);
+  border-radius: 0.6rem;
+  
+  margin-inline: auto;
+  margin-bottom: 5.3rem;
+  padding: 0.8rem 1.6rem;
+
+  color: #f7dd43;
+  font-size: 2.4rem;
+}
+
+.card h2 span{
+  font-size: 1.4rem;
+  text-transform: uppercase;
+}
+
+.card ul{
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+
+  width: 27rem;
+
+  list-style: none;
+}
+
+.card ul li{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.card ul li + li{
+  padding-top: 2.4rem;
+  border-top: 1px solid var(--border-top-color);
+}
+
+.card ul li strong{
+  font-weight: 900;
+  font-size: 3.6rem;
+  line-height: 125%;  
+}
+
+.card h2 span, .card ul li strong{
+  color: var(--fc-secondary);
+}
+
+.card h2:hover, .card ul li strong:hover, .card ul li img:hover{
+  transform: scale(1.1);
+}
+
+.card h2, .card ul li strong, .card ul li img{
+  transition: transform 0.3s;
+}
+
+.card {
+  opacity: 0;
+  animation: appear 0.2s forwards;
+}
+
+@keyframes appear{
+  0% {
+    transform: translateY(-5rem);
+    opacity: 0;
+  }
+
+  100%{
+    opacity: 1;
+  }
+}
+
+@media (min-width: 700px) {
+  #cards{
+    max-width: 670px;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+}
